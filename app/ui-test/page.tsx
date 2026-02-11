@@ -5,43 +5,52 @@ export default function UITestPage() {
     <div className="min-h-screen bg-void-black text-white relative overflow-hidden font-sans selection:bg-blue-500/30">
       
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-6 max-w-7xl mx-auto left-0 right-0 backdrop-blur-sm">
-        <div className="flex items-center gap-2">
-           <span className="text-xl font-bold tracking-tight text-white">Cureocity</span>
-        </div>
+      <nav className="fixed top-0 left-0 w-full z-50 border-b border-glass-edge backdrop-blur-[25.8px]">
+        <div className="flex items-center justify-between px-6 py-6 max-w-[1454px] mx-auto">
+          <div className="flex items-center gap-2">
+             <Image 
+              src="/logo.svg" 
+              alt="Cureocity Logo" 
+              width={180} 
+              height={60} 
+              className="w-[180px] h-auto"
+              priority 
+             />
+          </div>
 
-        <div className="hidden md:flex items-center gap-8 border border-white/10 rounded-full px-8 py-3 bg-black/50 backdrop-blur-md">
-          {["Healthiscape", "Cureocity App", "360 Assessment", "Flourish"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-[14px] text-[#C2C2C2] hover:text-white transition-colors duration-200 font-medium"
-            >
-              {item}
-            </a>
-          ))}
-        </div>
+          <div className="hidden md:flex items-center gap-8 border border-white/10 rounded-full px-9 py-6 bg-black/50 backdrop-blur-md">
+            {["Healthscape", "Cureocity App", "360 Assessment", "Flourish"].map((item) => (
+              <a
+                key={item}
+                href="#"
+                className="text-[18px] text-[#C2C2C2] hover:text-white transition-colors duration-200 font-normal"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
 
-        <div>
-          <button className="btn-assessment-bg text-white px-6 py-2.5 rounded-full text-xs font-medium hover:opacity-90 transition-opacity uppercase tracking-wider">
-            Get a Assessment
-          </button>
+          <div>
+            <button className="btn-assessment-bg text-white px-[32px] py-[20px] rounded-[12px] border border-glass-edge text-[18px] font-normal cursor-pointer hover:bg-white/10 backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 transition-all">
+              Get a Assessment
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <main className="relative z-10 flex flex-col items-center justify-start pt-32 pb-20 px-4 text-center min-h-[0vh]">
+      <main className="relative z-10 flex flex-col items-center justify-start pt-[182px] pb-20 px-4 text-center min-h-[0vh]">
         
-        <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-8 max-w-4xl mx-auto leading-[1.1] text-white">
+        <h1 className="text-5xl md:text-[100px] font-neue-montreal font-normal mb-8 max-w-4xl mx-auto leading-[1.1] text-transparent bg-clip-text bg-[linear-gradient(180deg,#FFFFFF_0%,rgba(205,205,205,0.64)_100%)]">
           Built-in with <br />
-          <span className="font-normal text-white">the Science of you</span>
+          the Science of you
         </h1>
 
         <div className="flex items-center gap-4 mb-16">
-          <button className="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-all text-xs uppercase tracking-wide backdrop-blur-sm">
+          <button className="px-[22px] py-[12px] rounded-[12px] border border-white/20 text-white hover:bg-white/10 transition-all text-[23px] font-medium backdrop-blur-sm">
             Book a consultation slot
           </button>
-          <button className="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-all text-xs uppercase tracking-wide backdrop-blur-sm">
+          <button className="px-[22px] py-[12px] rounded-[12px] border border-white/20 text-white hover:bg-white/10 transition-all text-[23px] font-medium backdrop-blur-sm">
             Get a visit
           </button>
         </div>
@@ -78,32 +87,39 @@ export default function UITestPage() {
         </div>
       </main>
 
-      {/* "Staying Healthy" Blue Section */}
-      <section className="relative w-full py-40 md:py-60 px-6 overflow-hidden">
-        {/* Blue Background with gradient/image overlay */}
-        <div className="absolute inset-0 bg-[#001133] z-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 mix-blend-overlay opacity-50" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-void-black to-void-black" />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="max-w-2xl">
-                <h2 className="text-5xl md:text-6xl font-light text-white mb-8 leading-tight">
-                Staying healthy <br/>
-                <span className="text-blue-200/80">feel still impossible?</span>
+      {/* "Staying Healthy" Video Section */}
+      <section className="relative w-full py-20 px-6">
+        <div className="relative max-w-[1454px] mx-auto h-[600px] md:h-[800px] rounded-[40px] overflow-hidden">
+            {/* Video Background */}
+            <video 
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            >
+              <source src="/video/section_2_video.mp4" type="video/mp4" />
+            </video>
+            
+            {/* Dark Overlay for text readability if needed, though image implies clean video. Adding slight gradient at bottom just in case. */}
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+
+            {/* Content Overlay */}
+            <div className="absolute bottom-0 left-0 p-8 md:p-16 z-10 max-w-2xl">
+                <h2 className="text-4xl md:text-[60px] font-neue-montreal font-normal mb-6 leading-[1.1] text-transparent bg-clip-text bg-[linear-gradient(180deg,#FFFFFF_0%,#999999_143.07%)]">
+                  Staying healthy <br/>
+                  feel still impossible?
                 </h2>
-                <p className="text-white/60 text-lg max-w-md leading-relaxed">
-                Wearables, apps and advice bombard us daily, yet lifestyle disease is rising.
+                <p className="text-[#C4C4C4] text-[27px] font-neue-montreal font-medium max-w-lg leading-relaxed">
+                  Wearables, apps and advice bombard us daily, yet lifestyle disease is rising.
                 </p>
             </div>
-            {/* Visual element for this section could go here */}
-            <div className="w-full md:w-1/3 aspect-video bg-blue-500/5 border border-blue-500/20 rounded-2xl backdrop-blur-sm" />
         </div>
       </section>
 
       {/* Basic Footer / Bottom Section */}
       <section className="relative py-24 px-6 bg-void-black">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1454px] mx-auto">
             
             {/* Circular Elements */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32">

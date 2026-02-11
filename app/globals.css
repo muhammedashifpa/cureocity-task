@@ -5,6 +5,7 @@
   --color-void-black: #000000;
   --color-glass-edge: rgba(255, 255, 255, 0.13);
   --color-nav-link: #C2C2C2;
+  --font-neue-montreal: "PP Neue Montreal", sans-serif;
   
   /* Animations */
   --animate-anti-gravity: float 8s ease-in-out infinite;
@@ -26,6 +27,8 @@
 :root {
   --background: var(--color-void-black);
   --foreground: #ffffff;
+  --hero-text-gradient: linear-gradient(180deg, #FFFFFF 0%, rgba(205, 205, 205, 0.64) 100%);
+  --staying-healthy-gradient: linear-gradient(180deg, #FFFFFF 0%, #999999 143.07%);
 }
 
 body {
