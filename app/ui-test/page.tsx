@@ -8,7 +8,7 @@ import CircleCard from "@/app/components/landing-page/CircleCard";
 
 export default function UITestPage() {
   return (
-    <div className="min-h-screen bg-void-black text-white relative overflow-hidden font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-void-black text-white relative overflow-hidden font-sans selection:bg-[#FB404A]/30">
       
       {/* Navbar */}
       <Navbar />
@@ -33,7 +33,7 @@ export default function UITestPage() {
         {/* Hero Visuals */}
         <div className="relative w-full max-w-[800px] mx-auto">
             {/* Background Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[#2244FF] opacity-10 blur-[120px] rounded-full z-0" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[#FB404A] opacity-10 blur-[120px] rounded-full z-0" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-void-black opacity-40 blur-[80px] rounded-full z-0" />
             
             {/* Main Image */}
@@ -141,11 +141,11 @@ export default function UITestPage() {
                 </div>
                 <div className="space-y-6 md:space-y-8 text-[#868686] text-lg md:text-[27px] font-manrope font-medium leading-[1.3] tracking-[0] max-w-2xl text-left">
                     <p>
-                        Your gym doesn't talk to your doctor.
-                        Your doctor doesn't design your fitness plan.
+                        Your gym doesn&apos;t talk to your doctor.
+                        Your doctor doesn&apos;t design your fitness plan.
                     </p>
                     <p>
-                        You're left in the middle, trying to piece together generic advice, hoping for the best.
+                        You&apos;re left in the middle, trying to piece together generic advice, hoping for the best.
                     </p>
                 </div>
             </div>

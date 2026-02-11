@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useAuthStore } from "@/app/store/useAuthStore";
 import Button from "./Button";
 
 const NAV_LINKS = ["Healthscape", "Cureocity App", "360 Assessment", "Flourish"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, token } = useAuthStore();
 
   return (
     <>
@@ -38,11 +41,28 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop Assessment Button */}
           <div className="hidden md:block">
-            <Button isAssessment>
-              Get a Assessment
-            </Button>
+            {token ? (
+              <Link href="/dashboard" className="flex items-center gap-3 group">
+                <div className="text-right">
+                   <p className="text-xs font-medium text-white group-hover:text-[#FB404A] transition-colors">{user?.firstName}</p>
+                   <p className="text-[10px] text-nav-link uppercase tracking-widest">Dashboard</p>
+                </div>
+                <div className="w-10 h-10 rounded-full border border-white/10 overflow-hidden bg-white/5 flex items-center justify-center group-hover:bg-[#FB404A]/10 transition-all">
+                  {user?.image ? (
+                    <Image src={user.image} alt="Avatar" width={40} height={40} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-xs font-medium">U</span>
+                  )}
+                </div>
+              </Link>
+            ) : (
+              <Link href="/login">
+                <Button isAssessment aria-label="Get a visit or assessment">
+                  Get a Assessment
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Hamburger Menu Icon */}
@@ -74,14 +94,16 @@ export default function Navbar() {
                 {item}
               </a>
             ))}
-            <Button 
-               isAssessment 
-               fullWidth 
-               className="mt-8 py-5 text-lg shadow-lg active:scale-[0.98]"
-               onClick={() => setIsOpen(false)}
-            >
-              Get a Assessment
-            </Button>
+            <Link href="/login" className="w-full">
+              <Button 
+                 isAssessment 
+                 fullWidth 
+                 className="mt-8 py-5 text-lg shadow-lg active:scale-[0.98]"
+                 onClick={() => setIsOpen(false)}
+              >
+                Get a Assessment
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
