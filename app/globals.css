@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors */
+  --color-void-black: #000000;
+  --color-glass-edge: rgba(255, 255, 255, 0.13);
+  --color-nav-link: #C2C2C2;
+  
+  /* Animations */
+  --animate-anti-gravity: float 8s ease-in-out infinite;
+  --animate-glow-pulse: pulse 10s ease-in-out infinite;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
   }
 }
 
+/* Custom Utilities */
+@utility btn-assessment-bg {
+  background: linear-gradient(284.52deg, rgba(0, 0, 0, 0.15) -96.98%, rgba(102, 102, 102, 0.15) 150.89%);
+}
+
+/* Global Reset */
+:root {
+  --background: var(--color-void-black);
+  --foreground: #ffffff;
+}
+
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll from animations */
 }
