@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Button from "./Button";
 
 const NAV_LINKS = ["Healthscape", "Cureocity App", "360 Assessment", "Flourish"];
 
@@ -39,14 +40,14 @@ export default function Navbar() {
 
           {/* Desktop Assessment Button */}
           <div className="hidden md:block">
-            <button className="btn-assessment-bg text-white px-[32px] py-[20px] rounded-[12px] border border-glass-edge text-[18px] font-normal cursor-pointer hover:bg-white/10 backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 transition-all">
+            <Button isAssessment>
               Get a Assessment
-            </button>
+            </Button>
           </div>
 
           {/* Mobile Hamburger Menu Icon */}
           <button 
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 z-[110]"
+            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 z-110"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
@@ -58,7 +59,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Overlay */}
         <div 
-          className={`fixed inset-0 h-screen w-screen bg-black z-[100] lg:hidden flex flex-col items-center justify-start pt-32 px-6 transition-all duration-500 ease-in-out ${
+          className={`fixed inset-0 h-screen w-screen bg-black z-100 lg:hidden flex flex-col items-center justify-start pt-32 px-6 transition-all duration-500 ease-in-out ${
             isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
           }`}
         >
@@ -73,12 +74,14 @@ export default function Navbar() {
                 {item}
               </a>
             ))}
-            <button 
-              className="mt-8 btn-assessment-bg text-white w-full py-5 rounded-[12px] border border-glass-edge text-lg font-normal shadow-lg transition-transform active:scale-[0.98]"
-              onClick={() => setIsOpen(false)}
+            <Button 
+               isAssessment 
+               fullWidth 
+               className="mt-8 py-5 text-lg shadow-lg active:scale-[0.98]"
+               onClick={() => setIsOpen(false)}
             >
               Get a Assessment
-            </button>
+            </Button>
           </div>
         </div>
       </nav>

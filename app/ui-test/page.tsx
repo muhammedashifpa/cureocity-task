@@ -1,5 +1,10 @@
 import Image from "next/image";
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/app/components/landing-page/Navbar";
+import Button from "@/app/components/landing-page/Button";
+import Container from "@/app/components/landing-page/Container";
+import GradientText from "@/app/components/landing-page/GradientText";
+import GlassCard from "@/app/components/landing-page/GlassCard";
+import CircleCard from "@/app/components/landing-page/CircleCard";
 
 export default function UITestPage() {
   return (
@@ -9,43 +14,42 @@ export default function UITestPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <main className="relative z-10 flex flex-col items-center justify-start pt-[120px] md:pt-[182px] pb-20 px-4 text-center min-h-[0vh]">
+      <Container as="main" className="relative z-10 flex flex-col items-center justify-start pt-[120px] md:pt-[182px] pb-20 text-center min-h-[0vh]">
         
-        <h1 className="text-4xl sm:text-5xl md:text-[100px] font-neue-montreal font-normal mb-8 max-w-4xl mx-auto leading-[1.1] text-transparent bg-clip-text bg-[linear-gradient(180deg,#FFFFFF_0%,rgba(205,205,205,0.64)_100%)]">
+        <GradientText as="h1" className="text-4xl sm:text-5xl md:text-[100px] font-neue-montreal font-normal mb-8 max-w-4xl mx-auto leading-[1.1]">
           Built-in with <br />
           the Science of you
-        </h1>
+        </GradientText>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
-          <button className="w-full sm:w-auto px-4 py-2.5 md:px-[22px] md:py-[12px] rounded-[10px] md:rounded-[12px] border border-white/20 text-white hover:bg-white/10 transition-all text-base md:text-[23px] font-medium backdrop-blur-sm">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-16 w-full sm:w-auto">
+          <Button variant="outline" fullWidth>
             Book a consultation slot
-          </button>
-          <button className="w-full sm:w-auto px-4 py-2.5 md:px-[22px] md:py-[12px] rounded-[10px] md:rounded-[12px] border border-white/20 text-white hover:bg-white/10 transition-all text-base md:text-[23px] font-medium backdrop-blur-sm">
+          </Button>
+          <Button variant="outline" fullWidth>
             Get a visit
-          </button>
+          </Button>
         </div>
 
         {/* Hero Visuals */}
         <div className="relative w-full max-w-[800px] mx-auto">
             {/* Background Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-red-900/20 blur-[100px] rounded-full -z-10" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] rounded-full border border-red-500/10 -z-10" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full border border-red-500/5 -z-10" />
-
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[#2244FF] opacity-10 blur-[120px] rounded-full z-0" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-void-black opacity-40 blur-[80px] rounded-full z-0" />
+            
             {/* Main Image */}
-            <div className="relative z-10">
+            <div className="relative z-10 mask-image-gradient-b">
                 <Image 
                     src="/image/hero_image_athlet.png"
                     alt="Hero Athlete"
-                    width={600}
-                    height={800}
-                    className="w-full h-auto mx-auto mask-image-gradient-b"
+                    width={1200}
+                    height={1200}
+                    className="w-full h-auto object-contain"
                     priority
                 />
             </div>
 
             {/* Floating Card: DNA (Left) */}
-            <div className="absolute top-[20%] left-[-2%] md:left-[-10%] w-20 h-20 md:w-32 md:h-32 bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center p-3 md:p-4 z-20 shadow-xl">
+            <GlassCard className="absolute top-[20%] left-[-2%] md:left-[-10%] w-20 h-20 md:w-32 md:h-32 p-3 md:p-4 z-20 shadow-xl">
                  <Image 
                     src="/image/dna.svg"
                     alt="DNA Icon"
@@ -53,10 +57,10 @@ export default function UITestPage() {
                     height={80}
                     className="w-full h-auto"
                  />
-            </div>
+            </GlassCard>
 
              {/* Floating Card: Workout (Right) */}
-            <div className="absolute top-[15%] right-[-2%] md:right-[-10%] w-20 h-20 md:w-32 md:h-32 bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center p-3 md:p-4 z-20 shadow-xl">
+            <GlassCard className="absolute top-[15%] right-[-2%] md:right-[-10%] w-20 h-20 md:w-32 md:h-32 p-3 md:p-4 z-20 shadow-xl">
                  <Image 
                     src="/image/workout.svg"
                     alt="Workout Icon"
@@ -64,7 +68,7 @@ export default function UITestPage() {
                     height={80}
                     className="w-full h-auto"
                  />
-            </div>
+            </GlassCard>
 
             {/* Bottom Glass Overlay */}
             <div className="absolute bottom-[2%] md:bottom-[5%] left-1/2 -translate-x-1/2 w-[95%] md:w-full bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.07)_100%)] backdrop-blur-[16.928px] border border-[#FFFFFF21] rounded-[20px] p-3 sm:p-4 md:p-8 z-30">
@@ -77,7 +81,7 @@ export default function UITestPage() {
         </div>
 
 
-      </main>
+      </Container>
 
       {/* "Staying Healthy" Video Section */}
       <section className="relative w-full py-12 md:py-20 px-4 md:px-6">
@@ -97,11 +101,11 @@ export default function UITestPage() {
             <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
 
             {/* Content Overlay */}
-            <div className="absolute bottom-0 left-0 p-6 md:p-16 z-10 max-w-2xl">
-                <h2 className="text-3xl md:text-[60px] font-neue-montreal font-normal mb-4 md:mb-6 leading-[1.1] text-transparent bg-clip-text bg-[linear-gradient(180deg,#FFFFFF_0%,#999999_143.07%)]">
+            <div className="absolute bottom-0 left-0 p-6 md:p-16 z-10 max-w-2xl text-left">
+                <GradientText as="h2" gradient="staying-healthy" className="text-3xl md:text-[60px] font-neue-montreal font-normal mb-4 md:mb-6 leading-[1.1]">
                   Staying healthy <br/>
                   feel still impossible?
-                </h2>
+                </GradientText>
                 <p className="text-[#C4C4C4] text-lg md:text-[27px] font-neue-montreal font-medium max-w-lg leading-relaxed">
                   Wearables, apps and advice bombard us daily, yet lifestyle disease is rising.
                 </p>
@@ -110,9 +114,7 @@ export default function UITestPage() {
       </section>
 
       {/* Basic Footer / Bottom Section */}
-      <section className="relative py-16 md:py-24 px-4 md:px-6 bg-void-black">
-        <div className="max-w-[1454px] mx-auto">
-            
+      <Container as="section" className="relative py-16 md:py-24 bg-void-black">
             {/* Circular Elements */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-[98px] mb-20 md:mb-32">
                 {[
@@ -121,23 +123,23 @@ export default function UITestPage() {
                     { title: "PHYSICAL FITNESS" },
                     { title: "MEDICAL CARE" }
                 ].map((item, i) => (
-                    <div key={i} className="w-full aspect-square rounded-full border border-[#FFFFFF26] flex items-center justify-center p-4 md:p-8 hover:scale-105 transition-transform duration-300 cursor-default bg-black/20 backdrop-blur-sm">
+                    <CircleCard key={i}>
                         <span className="text-xs sm:text-[18px] font-neo-sans font-medium text-white text-center leading-[1.3] tracking-[0.13em]">
                             {item.title}
                         </span>
-                    </div>
+                    </CircleCard>
                 ))}
             </div>
 
             {/* Bottom Text Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start border-t border-white/10 pt-12 md:pt-16">
-                <div>
+                <div className="text-left">
                      <h3 className="text-3xl md:text-[60px] font-normal text-white leading-[1.01] tracking-[0]">
                         How do you know <br/>
                         your complete health picture?
                      </h3>
                 </div>
-                <div className="space-y-6 md:space-y-8 text-[#868686] text-lg md:text-[27px] font-manrope font-medium leading-[1.3] tracking-[0] max-w-2xl">
+                <div className="space-y-6 md:space-y-8 text-[#868686] text-lg md:text-[27px] font-manrope font-medium leading-[1.3] tracking-[0] max-w-2xl text-left">
                     <p>
                         Your gym doesn't talk to your doctor.
                         Your doctor doesn't design your fitness plan.
@@ -147,8 +149,7 @@ export default function UITestPage() {
                     </p>
                 </div>
             </div>
-        </div>
-      </section>
+      </Container>
       
     </div>
   );
